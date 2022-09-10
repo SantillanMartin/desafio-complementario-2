@@ -6,7 +6,7 @@ class pais{
         this.visitado=visitado;
     }
 }
-
+// funcion que registra nuevos objetos.
 function registrarAgenda(){
     let comienzo= "ESC"
     alert("Bienvenido a la base de datos para registrar sus destinos ideales y visitados.\nDebe ingresar nombre del pais,continente donde esta ubicado,idioma hablante y si fue visitado o no.\nSi desea salir solo oprima ESC");    
@@ -35,12 +35,8 @@ function registrarAgenda(){
     
 }
 
-function mostrarAgenda(paises){
-    for(let lugar of paises){
-        alert(lugar.nombre);
-    }
-}
 
+//Esta funcion filtra todos los paises(objeto) que el usuario selecciono como visitados y los guarda en un array.
 function averiguarSiSeVisitoPais(paises){
     let paisesVisitados=paises.filter((elemento)=>elemento.visitado=="si");
     
@@ -53,13 +49,14 @@ function averiguarSiSeVisitoPais(paises){
 
 function main(){
     let paises= registrarAgenda();
-    //mostrarAgenda(paises);
+    
     let acumuladorPaisesNombre=[];
     paises.forEach(pais =>{
         acumuladorPaisesNombre.push(pais.nombre);
     });
     let paisesVisitados=averiguarSiSeVisitoPais(paises);
     let acumuladorPaisesVisitados=[];
+    // Aqui el objeto de los paises que el usuario visito se guarda solamente su nombre en un array,que luego se muestra por alert.
     paisesVisitados.forEach(pais => {
         
         acumuladorPaisesVisitados.push(pais.nombre);
